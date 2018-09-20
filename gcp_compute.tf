@@ -138,8 +138,8 @@ resource "google_compute_instance" "panos" {
  *  Linux victim
  */
 
-resource "google_compute_instance" "linuxserver" {
-  name         = "linuxserver"
+resource "google_compute_instance" "linux" {
+  name         = "linux"
   machine_type = "n1-standard-1"
   zone         = "europe-west2-a"
 
