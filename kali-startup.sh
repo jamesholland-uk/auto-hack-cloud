@@ -1,7 +1,12 @@
 #!/bin/bash
 # Initialise the Kali instance
 
+sudo yum install expect -y
+#
 sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
 sudo chmod 755 msfinstall
 sudo ./msfinstall
-# *** NEED TO ADD EXPECT SCRIPT (OR SIMILAR) TO INITIALISE DATABASE ***
+#
+sudo curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/sploit-init.sh > sploit-init.sh
+sudo chmod 755 sploit-init.sh
+su -c "./sploit-init.sh" -s /bin/sh jholland
