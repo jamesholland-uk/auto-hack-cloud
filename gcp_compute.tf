@@ -94,7 +94,7 @@ resource "google_compute_instance" "panos" {
     allow_stopping_for_update = true
     metadata {
         serial-port-enable = true
-        ssh-keys = "admin:${file("${var.gcp_ssh_key}")}"
+        #ssh-keys = "admin:${file("${var.gcp_ssh_key}")}"
         vmseries-bootstrap-gce-storagebucket = "auto-hack-cloud"
     }
     service_account {
@@ -191,7 +191,7 @@ resource "google_compute_instance" "kali" {
     }
   }
 
-  metadata_startup_script = "wget https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/kali-startup.sh \n chmod 755 kali-startup.sh \n ./kali-startup.sh"
+  metadata_startup_script = "curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/kali-startup.sh > kali-startup.sh \n chmod 755 kali-startup.sh \n ./kali-startup.sh"
 
   service_account {
     scopes = ["userinfo-email", "compute-ro", "storage-ro"]
@@ -231,7 +231,7 @@ resource "google_compute_firewall" "internet-ingress-for-mgt" {
     network = "mgmt"
     allow {
         protocol = "tcp"
-        ports = ["80", "443"]
+        ports = ["22", "443"]
     }
     source_ranges = ["81.107.157.88"]
     depends_on = ["google_compute_network.mgmt"]

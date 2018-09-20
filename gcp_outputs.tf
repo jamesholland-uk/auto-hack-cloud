@@ -28,7 +28,7 @@ output "Kali IP" {
 }
 
 output "Linux IP" {
-    value = "${google_compute_instance.linuxserver.network_interface.0.access_config.0.nat_ip}"
+    value = "${google_compute_instance.linux.network_interface.0.access_config.0.nat_ip}"
 }
 
 output "GCP Zone" {
