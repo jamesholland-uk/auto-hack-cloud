@@ -25,6 +25,54 @@ data "google_compute_zones" "available" {
 }
 
 /*
+ *  Storage bucket
+ */
+
+resource "google_storage_bucket" "bootstrap-bucket" {
+  name     = "bootstrap-bucket-12345"
+  location = "EU"
+}
+
+/*
+ *  Bootstrap files
+ */
+
+resource "google_storage_bucket_object" "init-cfg-txt" {
+  name   = "config/init-cfg.txt"
+  source = "init-cfg.txt"
+  bucket = "bootstrap-bucket-12345"
+  depends_on = ["google_storage_bucket.bootstrap-bucket"]
+}
+
+resource "google_storage_bucket_object" "bootstrap-xml" {
+  name   = "config/bootstrap.xml"
+  source = "bootstrap.xml"
+  bucket = "bootstrap-bucket-12345"
+  depends_on = ["google_storage_bucket.bootstrap-bucket"]
+}
+
+resource "google_storage_bucket_object" "content" {
+  name   = "content/panupv2-all-contents-8067-5015"
+  source = "panupv2-all-contents-8067-5015"
+  bucket = "bootstrap-bucket-12345"
+  depends_on = ["google_storage_bucket.bootstrap-bucket"]
+}
+
+resource "google_storage_bucket_object" "software" {
+  name   = "software/temp"
+  content = "."
+  bucket = "bootstrap-bucket-12345"
+  depends_on = ["google_storage_bucket.bootstrap-bucket"]
+}
+
+resource "google_storage_bucket_object" "license" {
+  name   = "license/temp"
+  content = "."
+  bucket = "bootstrap-bucket-12345"
+  depends_on = ["google_storage_bucket.bootstrap-bucket"]
+}
+
+/*
  *  Networks and subnetworks
  */
 
@@ -95,7 +143,7 @@ resource "google_compute_instance" "panos" {
     metadata {
         serial-port-enable = true
         #ssh-keys = "admin:${file("${var.gcp_ssh_key}")}"
-        vmseries-bootstrap-gce-storagebucket = "auto-hack-cloud"
+        vmseries-bootstrap-gce-storagebucket = "bootstrap-bucket-12345"
     }
     service_account {
         scopes = [
@@ -128,7 +176,7 @@ resource "google_compute_instance" "panos" {
 
     boot_disk {
         initialize_params {
-            image = "https://www.googleapis.com/compute/v1/projects/paloaltonetworksgcp-public/global/images/vmseries-byol-810"
+            image = "https://www.googleapis.com/compute/v1/projects/paloaltonetworksgcp-public/global/images/vmseries-bundle2-810"
         }
     }
     depends_on = ["google_compute_subnetwork.mgmt-net", "google_compute_subnetwork.inside-net", "google_compute_subnetwork.outside-net"]
@@ -272,7 +320,7 @@ resource "google_compute_firewall" "inside-to-outside" {
         protocol = "all"
         // Any port
     }
-    source_ranges = ["172.16.0.0/24"]
+    source_ranges = ["10.10.10.0/24", "172.16.0.0/24"]
     depends_on = ["google_compute_network.inside"]
 }
 
@@ -283,6 +331,6 @@ resource "google_compute_firewall" "outside-to-inside" {
         protocol = "all"
         // Any port
     }
-    source_ranges = ["10.10.10.0/24"]
+    source_ranges = ["10.10.10.0/24", "172.16.0.0/24"]
     depends_on = ["google_compute_network.outside"]
 }
