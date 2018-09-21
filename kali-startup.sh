@@ -7,6 +7,6 @@ sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/con
 sudo chmod 755 msfinstall
 sudo ./msfinstall
 #
-sudo curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/sploit-init.sh > sploit-init.sh
-sudo chmod 755 sploit-init.sh
-su -c "./sploit-init.sh" -s /bin/sh jholland
+sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metasploit-initialise-db.sh > metasploit-initialise-db.sh
+sudo chmod 755 metasploit-initialise-db.sh
+su -c "./metasploit-initialise-db.sh" -s /bin/sh jholland
