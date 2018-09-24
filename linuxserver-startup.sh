@@ -23,12 +23,17 @@ sudo mv DVWA/* /var/www/html/
 sudo rm -f /var/www/html/index.html
 sudo cp /var/www/html/config/config.inc.php.dist /var/www/html/config/config.inc.php
 sudo sed -i '/recaptcha/d' /var/www/html/config/config.inc.php
-sudo sed -i '/>/d' /var/www/html/config/config.inc.php
-sudo sed -i '/allow_url_include/d' /var/www/html/config/config.inc.php
 echo "\$_DVWA[ 'recaptcha_public_key' ]  = '6Lew5XEUAAAAAJKdUxQlWXsGGsFKasQA8Z3hw7Kv';" | sudo tee -a /var/www/html/config/config.inc.php
 echo "\$_DVWA[ 'recaptcha_private_key' ] = '6Lew5XEUAAAAAAq3AsRTuY5FADGICfcIPHfIaF3K';" | sudo tee -a /var/www/html/config/config.inc.php
-echo "?>" | sudo tee -a /var/www/html/config/config.inc.php
+sudo sed -i '/>/d' /var/www/html/config/config.inc.php
+sudo sed -i '/allow_url_include/d' /var/www/html/config/config.inc.php
 echo "allow_url_include = On" | sudo tee -a /etc/php5/apache2/php.ini
-
-
+sudo sed -i '/default_security/d' /var/www/html/config/config.inc.php
+echo "\$_DVWA[ 'default_security_level' ] = 'low';" | sudo tee -a /var/www/html/config/config.inc.php
+sudo sed -i '/password/d' /var/www/html/config/config.inc.php
+echo "\$_DVWA[ 'db_password' ] = '';" | sudo tee -a /var/www/html/config/config.inc.php
+echo "?>" | sudo tee -a /var/www/html/config/config.inc.php
+sudo chmod 777 /var/www/html/hackable/uploads/
+sudo chmod 666 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
+sudo chmod 777 /var/www/html/config
 sudo service apache2 restart
