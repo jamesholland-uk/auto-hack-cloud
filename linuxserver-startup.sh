@@ -2,7 +2,8 @@
 # Initialise the Linux server
 #
 sudo apt-get update
-sudo apt-get install tomcat7 tomcat7-admin default-jre unzip -y
+sudo apt-get install tomcat7 tomcat7-admin default-jre apache2 php5 php5-mcrypt php5-mysql php5-xmlrpc php5-gd git unzip -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
 #
 # wget https://archive.apache.org/dist/struts/2.5.12/struts-2.5.12-all.zip
 # unzip struts-2.5.12-all.zip
@@ -13,8 +14,21 @@ sudo apt-get install tomcat7 tomcat7-admin default-jre unzip -y
 #
 wget https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/struts2_2.3.15.1-showcase.war
 sudo cp struts2_2.3.15.1-showcase.war /var/lib/tomcat7/webapps
-#
 wget https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/tomcat-users.xml
 sudo cp tomcat-users.xml /etc/tomcat7
-#
 sudo service tomcat7 restart
+#
+git clone https://github.com/ethicalhack3r/DVWA
+sudo mv DVWA/* /var/www/html/
+sudo rm -f /var/www/html/index.html
+sudo cp /var/www/html/config/config.inc.php.dist /var/www/html/config/config.inc.php
+sudo sed -i '/recaptcha/d' /var/www/html/config/config.inc.php
+sudo sed -i '/>/d' /var/www/html/config/config.inc.php
+sudo sed -i '/allow_url_include/d' /var/www/html/config/config.inc.php
+echo "\$_DVWA[ 'recaptcha_public_key' ]  = '6Lew5XEUAAAAAJKdUxQlWXsGGsFKasQA8Z3hw7Kv';" | sudo tee -a /var/www/html/config/config.inc.php
+echo "\$_DVWA[ 'recaptcha_private_key' ] = '6Lew5XEUAAAAAAq3AsRTuY5FADGICfcIPHfIaF3K';" | sudo tee -a /var/www/html/config/config.inc.php
+echo "?>" | sudo tee -a /var/www/html/config/config.inc.php
+echo "allow_url_include = On" | sudo tee -a /etc/php5/apache2/php.ini
+
+
+sudo service apache2 restart
