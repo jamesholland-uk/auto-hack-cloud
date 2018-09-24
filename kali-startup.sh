@@ -11,4 +11,4 @@ sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metas
 sudo chmod 755 metasploit-initialise-db.sh
 su -c "./metasploit-initialise-db.sh" -s /bin/sh jholland
 #
-echo "msfconsole" >> ~/.bashrc
+echo "/opt/metasploit-framework/bin/msfconsole" >> ~/.bashrc
