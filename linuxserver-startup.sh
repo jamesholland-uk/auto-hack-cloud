@@ -36,4 +36,7 @@ echo "?>" | sudo tee -a /var/www/html/config/config.inc.php
 sudo chmod 777 /var/www/html/hackable/uploads/
 sudo chmod 666 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
 sudo chmod 777 /var/www/html/config
+sudo sed -i "s/Database Setup/****Just Press Create-Reset Database Below****/g" /var/www/html/setup.php
+sudo sed -i "s/Username/Username is admin/g" /var/www/html/login.php
+sudo sed -i "s/Password/Password is password/g" /var/www/html/login.php
 sudo service apache2 restart
