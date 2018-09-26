@@ -27,7 +27,9 @@ cd shellinabox
 sudo autoreconf -i
 sudo ./configure
 sudo make
-sudo ./shellinaboxd -b -q -t
+sudo curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/shell-style.css > shell-style.css
+shellinaboxd -b -q -t --user-css Normal:+shell-style.css
+cd ..
 #
 sudo curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/struts1.rc > /home/user/struts1.rc
 sudo touch /home/user/struts1-exploit.sh
