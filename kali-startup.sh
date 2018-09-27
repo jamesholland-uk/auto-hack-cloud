@@ -18,8 +18,7 @@ sudo chmod 755 metasploit-initialise-db.sh
 su -c "./metasploit-initialise-db.sh" -s /bin/sh user
 #
 sudo touch /home/user/.bashrc
-sudo echo "/opt/metasploit-framework/bin/msfconsole" >> /home/user/.bashrc
-#
+sudo echo -e "\n\n+ -- --=[ Pre-canned exploits ]=-- -- +\n\n    ./struts1-exploit.sh\n\n" >> /etc/motd
 #
 sudo yum install git openssl-devel pam-devel zlib-devel autoconf automake libtool -y
 sudo git clone https://github.com/shellinabox/shellinabox.git
