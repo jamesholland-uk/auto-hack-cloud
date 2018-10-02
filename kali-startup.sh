@@ -27,7 +27,10 @@ sudo autoreconf -i
 sudo ./configure
 sudo make
 sudo curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/shell-style.css > shell-style.css
-./shellinaboxd -b -q -t --user-css Normal:+shell-style.css
+
+su -c "./shellinaboxd -b -q -t --user-css Normal:+shell-style.css" -s /bin/sh user
+#./shellinaboxd -b -q -t --user-css Normal:+shell-style.css
+
 cd ..
 #
 sudo curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/struts1.rc > /home/user/struts1.rc
