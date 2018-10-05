@@ -1,6 +1,7 @@
 #!/bin/bash
-# Initialise the Linux server
+# Initialise the Database server
 #
+sudo locale-gen en_GB.UTF-8
 sudo adduser --shell /bin/bash --disabled-password --gecos "" user
 echo "user:Automation123" | sudo chpasswd
 sudo usermod -aG google-sudoers user
