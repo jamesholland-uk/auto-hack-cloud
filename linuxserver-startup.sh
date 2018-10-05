@@ -10,7 +10,7 @@ echo "PasswordAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
 sudo restart ssh
 #
 sudo apt-get update
-sudo apt-get install tomcat7 tomcat7-admin default-jre apache2 php5 php5-mcrypt php5-mysql php5-xmlrpc php5-gd git unzip -y
+sudo apt-get install tomcat7 tomcat7-admin default-jre apache2 php5 php5-mcrypt php5-mysql php5-xmlrpc php5-gd git netcat-traditional unzip -y
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
 #
 # wget https://archive.apache.org/dist/struts/2.5.12/struts-2.5.12-all.zip
