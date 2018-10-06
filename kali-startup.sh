@@ -19,7 +19,7 @@ sudo chmod 755 metasploit-initialise-db.sh
 su -c "./metasploit-initialise-db.sh" -s /bin/sh user
 #
 sudo touch /home/user/.bashrc
-sudo echo -e "\n\n+ -- --=[ Pre-canned ]=-- -- +\n\n    ./struts1-exploit.sh\n\n" >> /etc/motd
+sudo echo -e "\n\n+ -- --=[ Pre-canned ]=-- -- +\n\n    ./struts1-exploit.sh\n\n    ./netcat.sh\n\n" >> /etc/motd
 #
 sudo yum install git openssl-devel pam-devel zlib-devel autoconf automake libtool telnet -y
 sudo git clone https://github.com/shellinabox/shellinabox.git
@@ -41,4 +41,6 @@ sed -i "s/xxyyzz/$1/g" /home/user/struts1.rc
 sudo touch /home/user/struts1-exploit.sh
 sudo chmod 755 /home/user/struts1-exploit.sh
 sudo echo "msfconsole -r struts1.rc" > /home/user/struts1-exploit.sh
+sudo touch /home/user/netcat.sh
+sudo echo "sudo nc -lvp 80" > /home/user/netcat.sh
 #
