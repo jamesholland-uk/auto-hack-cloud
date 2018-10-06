@@ -13,3 +13,5 @@ sudo restart ssh
 sudo apt-get update
 sudo apt-get install git unzip -y
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
+#
+sudo sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/my.cnf
