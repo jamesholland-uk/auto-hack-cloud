@@ -42,5 +42,6 @@ sudo touch /home/user/struts1-exploit.sh
 sudo chmod 755 /home/user/struts1-exploit.sh
 sudo echo "msfconsole -r struts1.rc" > /home/user/struts1-exploit.sh
 sudo touch /home/user/netcat.sh
+sudo chmod 755 /home/user/netcat.sh
 sudo echo "sudo nc -lvp 80" > /home/user/netcat.sh
 #
