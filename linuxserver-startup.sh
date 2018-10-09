@@ -11,8 +11,20 @@ echo "PasswordAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
 sudo restart ssh
 #
 sudo apt-get update
-sudo apt-get install tomcat7 tomcat7-admin default-jre apache2 php5 php5-mcrypt php5-mysql php5-xmlrpc php5-gd git netcat-traditional libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf unzip -y
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
+sudo apt-get install tomcat7 tomcat7-admin default-jre apache2 php5 php5-mcrypt php5-mysql php5-xmlrpc php5-gd git netcat-traditional libssl-dev libpam0g-dev zlib1g-dev dh-autoreconf debconf-utils unzip -y
+
+
+
+
+echo \"mysql-server mysql-server/root_password password Automation123\" | sudo debconf-set-selections\
+echo \"mysql-server mysql-server/root_password_again password Automation123\" | sudo debconf-set-selections\
+export DEBIAN_FRONTEND=noninteractive
+DEBIAN_FRONTEND=noninteractive
+apt-get install -y -q mysql-server
+
+
+
+
 #
 # wget https://archive.apache.org/dist/struts/2.5.12/struts-2.5.12-all.zip
 # unzip struts-2.5.12-all.zip
@@ -39,8 +51,11 @@ sudo sed -i '/allow_url_include/d' /var/www/html/config/config.inc.php
 echo "allow_url_include = On" | sudo tee -a /etc/php5/apache2/php.ini
 sudo sed -i '/default_security/d' /var/www/html/config/config.inc.php
 echo "\$_DVWA[ 'default_security_level' ] = 'low';" | sudo tee -a /var/www/html/config/config.inc.php
-sudo sed -i '/password/d' /var/www/html/config/config.inc.php
-echo "\$_DVWA[ 'db_password' ] = '';" | sudo tee -a /var/www/html/config/config.inc.php
+
+
+sed -i \"s/p@ssw0rd/Automation123/g\" /var/www/html/config/config.inc.php
+
+
 echo "?>" | sudo tee -a /var/www/html/config/config.inc.php
 sudo chmod 777 /var/www/html/hackable/uploads/
 sudo chmod 666 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
@@ -53,6 +68,18 @@ sudo sed -i "s/'SQL Injection'/'* SQL Injection'/g" /var/www/html/dvwa/includes/
 sudo sed -i "s/'XSS (Reflected)'/'* XSS (Reflected)'/g" /var/www/html/dvwa/includes/dvwaPage.inc.php
 sudo sed -i "s/Username/Username is admin/g" /var/www/html/login.php
 sudo sed -i "s/Password/Password is password/g" /var/www/html/login.php
+
+
+
+
+
+mysql -u root -pAutomation123 -e \"CREATE DATABASE dvwa;\"\n"
+mysql dvwa < dumped.sql  -u root -pAutomation123
+
+
+
+
+
 sudo service apache2 restart
 #
 sudo git clone https://github.com/shellinabox/shellinabox.git
