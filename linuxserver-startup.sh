@@ -53,14 +53,14 @@ sudo sed -i '/default_security/d' /var/www/html/config/config.inc.php
 echo "\$_DVWA[ 'default_security_level' ] = 'low';" | sudo tee -a /var/www/html/config/config.inc.php
 
 
-sed -i \"s/p@ssw0rd/Automation123/g\" /var/www/html/config/config.inc.php
+sed -i "s/p@ssw0rd/Automation123/g" /var/www/html/config/config.inc.php
 
 
 echo "?>" | sudo tee -a /var/www/html/config/config.inc.php
 sudo chmod 777 /var/www/html/hackable/uploads/
 sudo chmod 666 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
 sudo chmod 777 /var/www/html/config
-sudo sed -i "s/avatar varchar(70)/avatar varchar(100)/g" /var/www/html/DVWA-master/dvwa/includes/DBMS/MySQL.php
+sudo sed -i "s/avatar varchar(70)/avatar varchar(100)/g" /var/www/html/dvwa/includes/DBMS/MySQL.php
 # sudo sed -i "s/Database Setup/Just press the Create-Reset Database button below/g" /var/www/html/setup.php
 sudo sed -i "s/More Information/' OR '1'='1/g" /var/www/html/vulnerabilities/sqli/index.php
 sudo sed -i "s/More Information/script alert('compromised')script/g" /var/www/html/vulnerabilities/xss_r/index.php
@@ -73,7 +73,7 @@ sudo sed -i "s/Password/Password is password/g" /var/www/html/login.php
 
 
 
-mysql -u root -pAutomation123 -e \"CREATE DATABASE dvwa;\"\n"
+mysql -u root -pAutomation123 -e "CREATE DATABASE dvwa;"
 mysql dvwa < dumped.sql  -u root -pAutomation123
 
 
