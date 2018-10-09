@@ -44,7 +44,7 @@ sudo sed -i '/allow_url_include/d' /var/www/html/config/config.inc.php
 echo "allow_url_include = On" | sudo tee -a /etc/php5/apache2/php.ini
 sudo sed -i '/default_security/d' /var/www/html/config/config.inc.php
 echo "\$_DVWA[ 'default_security_level' ] = 'low';" | sudo tee -a /var/www/html/config/config.inc.php
-sed -i "s/p@ssw0rd/Automation123/g" /var/www/html/config/config.inc.php
+sudo sed -i "s/p@ssw0rd/Automation123/g" /var/www/html/config/config.inc.php
 echo "?>" | sudo tee -a /var/www/html/config/config.inc.php
 sudo chmod 777 /var/www/html/hackable/uploads/
 sudo chmod 666 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
