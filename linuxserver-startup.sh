@@ -16,11 +16,11 @@ sudo apt-get install tomcat7 tomcat7-admin default-jre apache2 php5 php5-mcrypt 
 
 
 
-echo \"mysql-server mysql-server/root_password password Automation123\" | sudo debconf-set-selections\
-echo \"mysql-server mysql-server/root_password_again password Automation123\" | sudo debconf-set-selections\
+echo mysql-server mysql-server/root_password password Automation123 | sudo debconf-set-selections
+echo mysql-server mysql-server/root_password_again password Automation123 | sudo debconf-set-selections
 export DEBIAN_FRONTEND=noninteractive
 DEBIAN_FRONTEND=noninteractive
-apt-get install -y -q mysql-server
+sudo apt-get install -y -q mysql-server
 
 
 
