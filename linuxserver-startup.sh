@@ -57,6 +57,7 @@ sudo sed -i "s/'XSS (Reflected)'/'* XSS (Reflected)'/g" /var/www/html/dvwa/inclu
 sudo sed -i "s/Username/Username is admin/g" /var/www/html/login.php
 sudo sed -i "s/Password/Password is password/g" /var/www/html/login.php
 #
+sudo wget https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/dumped.sql
 mysql -u root -pAutomation123 -e "CREATE DATABASE dvwa;"
 mysql dvwa < dumped.sql  -u root -pAutomation123
 #
