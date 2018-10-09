@@ -50,8 +50,8 @@ sudo chmod 777 /var/www/html/hackable/uploads/
 sudo chmod 666 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
 sudo chmod 777 /var/www/html/config
 sudo sed -i "s/avatar varchar(70)/avatar varchar(100)/g" /var/www/html/dvwa/includes/DBMS/MySQL.php
-sudo sed -i "s|More Information|' OR '1'='1|g" /var/www/html/vulnerabilities/sqli/index.php
-sudo sed -i "s|More Information|script alert('compromised')script|g" /var/www/html/vulnerabilities/xss_r/index.php
+sudo sed -i "s|More Information|</h2>' OR '1'='1<h2>|g" /var/www/html/vulnerabilities/sqli/index.php
+sudo sed -i "s|More Information|</h2>script alert('compromised')script<h2>|g" /var/www/html/vulnerabilities/xss_r/index.php
 sudo sed -i "s/'SQL Injection'/'* SQL Injection'/g" /var/www/html/dvwa/includes/dvwaPage.inc.php
 sudo sed -i "s/'XSS (Reflected)'/'* XSS (Reflected)'/g" /var/www/html/dvwa/includes/dvwaPage.inc.php
 sudo sed -i "s/Username/Username is admin/g" /var/www/html/login.php
