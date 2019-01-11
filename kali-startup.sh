@@ -8,11 +8,14 @@ sudo usermod -aG google-sudoers user
 sudo sed -i '/PasswordAuthentication/d' /etc/ssh/sshd_config
 echo "PasswordAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
 sudo service sshd restart
-sudo yum install expect -y
+sudo yum install expect wget -y
 #
-sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
-sudo chmod 755 msfinstall
-sudo ./msfinstall
+#sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+#sudo chmod 755 msfinstall
+#sudo ./msfinstall
+wget https://rpm.metasploit.com/metasploit-omnibus/pkg/metasploit-framework-5.0.1%2B20190110175340~1rapid7-1.el6.x86_64.rpm > metasploit-framework-5.
+0.1%2B20190110175340~1rapid7-1.el6.x86_64.rpm
+sudo yum install metasploit-framework-5.0.1+20190110175340~1rapid7-1.el6.x86_64.rpm
 #
 sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metasploit-v5-initialise-db.sh > metasploit-v5-initialise-db.sh
 sudo chmod 755 metasploit-v5-initialise-db.sh
