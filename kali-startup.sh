@@ -15,7 +15,7 @@ sudo yum install expect wget -y
 #sudo ./msfinstall
 wget https://rpm.metasploit.com/metasploit-omnibus/pkg/metasploit-framework-5.0.1%2B20190110175340~1rapid7-1.el6.x86_64.rpm > metasploit-framework-5.
 0.1%2B20190110175340~1rapid7-1.el6.x86_64.rpm
-sudo yum install metasploit-framework-5.0.1+20190110175340~1rapid7-1.el6.x86_64.rpm
+sudo yum install metasploit-framework-5.0.1+20190110175340~1rapid7-1.el6.x86_64.rpm -y
 #
 sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metasploit-v5-initialise-db.sh > metasploit-v5-initialise-db.sh
 sudo chmod 755 metasploit-v5-initialise-db.sh
