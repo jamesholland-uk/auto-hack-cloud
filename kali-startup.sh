@@ -14,9 +14,9 @@ sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/con
 sudo chmod 755 msfinstall
 sudo ./msfinstall
 #
-sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metasploit-initialise-db.sh > metasploit-initialise-db.sh
-sudo chmod 755 metasploit-initialise-db.sh
-su -c "./metasploit-initialise-db.sh" -s /bin/sh user
+sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metasploit-v5-initialise-db.sh > metasploit-v5-initialise-db.sh
+sudo chmod 755 metasploit-v5-initialise-db.sh
+su -c "./metasploit-v5-initialise-db.sh" -s /bin/sh user
 #
 sudo touch /home/user/.bashrc
 sudo echo -e "\n\n+ -- --=[ Pre-canned ]=-- -- +\n\n    ./struts1-exploit.sh\n\n    ./netcat.sh\n\n" >> /etc/motd
