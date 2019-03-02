@@ -13,7 +13,9 @@ sudo yum install expect -y
 #sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
 #sudo chmod 755 msfinstall
 #sudo ./msfinstall
-curl https://rpm.metasploit.com/metasploit-omnibus/pkg/metasploit-framework-5.0.1%2B20190110175340~1rapid7-1.el6.x86_64.rpm > metasploit-framework-5.0.1-20190110175340-1rapid7-1.el6.x86_64.rpm
+#
+#curl https://rpm.metasploit.com/metasploit-omnibus/pkg/metasploit-framework-5.0.1%2B20190110175340~1rapid7-1.el6.x86_64.rpm > metasploit-framework-5.0.1-20190110175340-1rapid7-1.el6.x86_64.rpm
+curl https://www.jamoi.co.uk/metasploit-framework-5.0.1+20190110175340_1rapid7-1.el6.x86_64.rpm > metasploit-framework-5.0.1-20190110175340-1rapid7-1.el6.x86_64.rpm
 sudo yum install metasploit-framework-5.0.1-20190110175340-1rapid7-1.el6.x86_64.rpm -y
 #
 sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metasploit-v5-initialise-db.sh > metasploit-v5-initialise-db.sh
