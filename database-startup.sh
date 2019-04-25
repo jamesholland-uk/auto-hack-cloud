@@ -19,4 +19,4 @@ sudo sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/my.cnf
 wget https://www.jamoi.co.uk/Linux6011475.sh
 chmod +x Linux6011475.sh
 sudo ./Linux6011475.sh
-sudo /opt/traps/bin/cytool checkin
+while sleep 1; do sudo /opt/traps/bin/cytool checkin; done
