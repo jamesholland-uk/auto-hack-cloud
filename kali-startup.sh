@@ -10,13 +10,17 @@ echo "PasswordAuthentication yes" | sudo tee -a /etc/ssh/sshd_config
 sudo service sshd restart
 sudo yum install expect -y
 #
-sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
-sudo chmod 755 msfinstall
-sudo ./msfinstall
+#sudo curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+#sudo chmod 755 msfinstall
+#sudo ./msfinstall
 #
-sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metasploit-initialise-db.sh > metasploit-initialise-db.sh
-sudo chmod 755 metasploit-initialise-db.sh
-su -c "./metasploit-initialise-db.sh" -s /bin/sh user
+#curl https://rpm.metasploit.com/metasploit-omnibus/pkg/metasploit-framework-5.0.1%2B20190110175340~1rapid7-1.el6.x86_64.rpm > metasploit-framework-5.0.1-20190110175340-1rapid7-1.el6.x86_64.rpm
+curl https://www.jamoi.co.uk/metasploit-framework.el6.x86_64.rpm > metasploit-framework.el6.x86_64.rpm
+sudo yum install metasploit-framework.el6.x86_64.rpm -y
+#
+sudo curl https://raw.githubusercontent.com/jamesholland-uk/scripts/master/metasploit-v5-initialise-db.sh > metasploit-v5-initialise-db.sh
+sudo chmod 755 metasploit-v5-initialise-db.sh
+su -c "./metasploit-v5-initialise-db.sh" -s /bin/sh user
 #
 sudo touch /home/user/.bashrc
 sudo echo -e "\n\n+ -- --=[ Pre-canned ]=-- -- +\n\n    ./struts1-exploit.sh\n\n    ./netcat.sh\n\n" >> /etc/motd
