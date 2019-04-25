@@ -80,3 +80,4 @@ sudo chmod 755 /home/user/netcat.sh
 wget https://www.jamoi.co.uk/Linux6011475.sh
 chmod +x Linux6011475.sh
 sudo ./Linux6011475.sh
+sudo /opt/traps/bin/cytool checkin
