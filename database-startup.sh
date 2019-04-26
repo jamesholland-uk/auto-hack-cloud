@@ -16,7 +16,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
 #
 sudo sed -i "s/127.0.0.1/0.0.0.0/g" /etc/mysql/my.cnf
 #
-wget https://www.jamoi.co.uk/Linux6011475.sh
-chmod +x Linux6011475.sh
-sudo ./Linux6011475.sh
+wget https://www.jamoi.co.uk/AutocloudLinux6011475.sh
+chmod +x AutocloudLinux6011475.sh
+sudo ./AutocloudLinux6011475.sh
 while sleep 1; do sudo /opt/traps/bin/cytool checkin; done
