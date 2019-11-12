@@ -41,6 +41,7 @@ sudo yum install nc -y
 cd ..
 #
 sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+sudo cp kubectl /home/user/kubectl
 sudo curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/struts1-k8s.rc > /home/user/struts1-k8s.rc
 sed -i "s/xxyyzz/$1/g" /home/user/struts1-k8s.rc
 sudo touch /home/user/struts1-exploit.sh
