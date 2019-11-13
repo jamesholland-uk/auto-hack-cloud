@@ -53,6 +53,13 @@ sudo chmod 755 /home/user/netcat.sh
 sudo echo "sudo nc -lvp 80" > /home/user/netcat.sh
 sudo touch /home/user/k8s-enum.sh
 sudo chmod 755 /home/user/k8s-enum.sh
-sudo echo 'ls -la /var/run/secrets/kubernetes.io/serviceaccount' > /home/user/k8s-enum.sh
+sudo echo 'chmod +x kubectl' > /home/user/k8s-enum.sh
+sudo echo ' ' >> /home/user/k8s-enum.sh
+sudo echo 'Enumerate Kuberates secure tokens...' >> /home/user/k8s-enum.sh
+sudo echo ' ' >> /home/user/k8s-enum.sh
+sudo echo 'ls -la /var/run/secrets/kubernetes.io/serviceaccount' >> /home/user/k8s-enum.sh
+sudo echo ' ' >> /home/user/k8s-enum.sh
+sudo echo 'Enumerate Kubernetes environment...' >> /home/user/k8s-enum.sh
+sudo echo ' ' >> /home/user/k8s-enum.sh
 sudo echo './kubectl --server=https://kubernetes.default.svc --insecure-skip-tls-verify=true --token="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" get pods -n sock-shop' >> /home/user/k8s-enum.sh
 #
