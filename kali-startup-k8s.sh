@@ -57,7 +57,7 @@ sudo echo 'chmod +x kubectl' > /home/user/k8s-enum.sh
 sudo echo 'echo " "' >> /home/user/k8s-enum.sh
 sudo echo 'echo "Enumerate Kuberates secure tokens..."' >> /home/user/k8s-enum.sh
 sudo echo 'echo " "' >> /home/user/k8s-enum.sh
-sudo echo 'echo "ls -la /var/run/secrets/kubernetes.io/serviceaccount"' >> /home/user/k8s-enum.sh
+sudo echo 'ls -la /var/run/secrets/kubernetes.io/serviceaccount' >> /home/user/k8s-enum.sh
 sudo echo 'echo " "' >> /home/user/k8s-enum.sh
 sudo echo 'echo "Enumerate Kubernetes environment..."' >> /home/user/k8s-enum.sh
 sudo echo 'echo " "' >> /home/user/k8s-enum.sh
